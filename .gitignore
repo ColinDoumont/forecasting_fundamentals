@@ -1,0 +1,5 @@
+*.txt
+*.csv
+*.h5
+*.pkl
+__pycache__/
