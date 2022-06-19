@@ -8,7 +8,7 @@ Follow the instructions below to set-up the code on your local machine.
 
 0. Make sure you have the latest Python version installed, as well as the packages listed in requirements.txt
 1. Clone the repository
-2. Download the datasets from the following Google Drive link: xxxxxxxxxxxxxxxxxxxx
+2. Download the datasets from the following [Google Drive link](https://drive.google.com/drive/folders/1CSm2rkKvS95Wh4UkLh4Ks2WVfW-UxxyH?usp=sharing).
 3. Place the downloaded datasets in the data/ folder
 4. Run cusip_list.ipynb
 5. Run preprocessing_final.ipynb
