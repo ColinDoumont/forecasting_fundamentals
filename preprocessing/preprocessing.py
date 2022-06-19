@@ -1,17 +1,17 @@
-"""
-Functions used for pre-processing the data.
-All functions follow a simple pattern:
-    input = df
-    output = transformed_df
-"""
 import pandas as pd
 
-# Function to fill in missing values in a forward manner.
+
 def ffill(df, columns_list, id='cusip'):
     """
-    type(df) = pandas DataFrame
-    type(columns_list) = list
-    type(id) = str
+    Function to fill in missing values in a forward manner.
+
+    :param df: dataframe to be transformed
+    :type df: pandas.dataframe
+    :param columns_list: list of columns to fill forward
+    :type columns_list: list
+    :param id: identity used to create groups
+    :type id: str
+    :return: df (forward filled)
     """
     df_ffill = df.copy()
 
@@ -21,12 +21,17 @@ def ffill(df, columns_list, id='cusip'):
     return df_ffill
 
 
-# Function to fill in missing values by taking median of cross-section.
 def mfill(df, columns_list, date='datadate'):
     """
-    type(df) = pandas DataFrame
-    type(columns_list) = list
-    type(dates) = str
+    Function to fill in missing values by taking median of cross-section.
+
+    :param df: dataframe to be transformed
+    :type df: pandas.dataframe
+    :param columns_list: list of columns to fill median for
+    :type columns_list: list
+    :param date: column with time index
+    :type date: str
+    :return: df (median filled)
     """
     df_mfill = df.copy()
 
@@ -36,13 +41,22 @@ def mfill(df, columns_list, date='datadate'):
     return df_mfill
 
 
-# Function to add lags in the dataframe.
 def lagged(df, columns_list, id='cusip', date='datadate', lags_list=[-5,-4,-3,-2,-1,1]):
     """
-    type(df) = pandas DataFrame
-    type(columns_list) = list
-    type(id) = str
-    type (lags_list) = list
+    Function to add lags in the dataframe.
+    
+    :param df: dataframe to be transformed
+    :type df: pandas.dataframe
+    :param columns_list: list of columns for which to create lags
+    :type columns_list: list
+    :param id: identity used to create groups
+    :type id: str
+    :param date: column with time index
+    :type data: str
+    :return: df (forward filled)
+    :param lags_list: amount of lags required
+    :type lags_list: list
+    :return: df (with new lag columns)
     """
     lags_list = [-i for i in lags_list]
     df_lagged = df.copy().sort_values(by=date)  
@@ -62,13 +76,19 @@ def lagged(df, columns_list, id='cusip', date='datadate', lags_list=[-5,-4,-3,-2
     return df_lagged, X_col_list, y_col_list
 
 
-# Function to convert quarterly data into trailing twelve months (TTM) data.
 def ttm(df, columns_list=['revtq', 'cogsq', 'xsgaq', 'niq', 'ebitq'], id='cusip', date='datadate'):
     """
-    type(df) = pandas DataFrame
-    type(columns_list) = list
-    type(id) = str
-    type(date) = str
+    Function to convert quarterly data into trailing twelve months (TTM) data.
+    
+    :param df: dataframe to be transformed
+    :type df: pandas.dataframe
+    :param columns_list: list of columns to transform to TTM format
+    :type columns_list: list
+    :param id: identity used to create groups
+    :type id: str
+    :param date: column with time index
+    :type data: str
+    :return: df (with new TTM format)
     """
     df_ttm = df.copy()
     df_ttm_shuffled = df.copy()
