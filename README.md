@@ -1,7 +1,7 @@
 # Forecasing Fundemantals via Neural Networks
 
 ## Introduction
-This GitHub repository contains code for the paper "Forecasting Fundamentals via Neural Networks", which was written by Colin Doumont for his honours research project. The project was supervised by Hugo Schyns.
+This GitHub repository contains code for the paper "Forecasting Company Fundamentals via Neural Networks", which was written by Colin Doumont for his honours research project. The project was supervised by Hugo Schyns.
 
 ## Set-up
 Follow the instructions below to set-up the code on your local machine.
